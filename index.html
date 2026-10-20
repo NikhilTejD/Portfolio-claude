@@ -1,0 +1,474 @@
+<title>Nikhil Tej D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field program sheet. Left-aligned editorial column, one wide "program map" band
+   that shows seven years of concurrent schemes as lanes, then case files you can filter. */
+:root{
+  --bg:#F2F4F1;
+  --surface:#FBFCFA;
+  --fg:#15232A;
+  --muted:#56676D;
+  --line:#D2D9D4;
+  --accent:#0F6B57;
+  --accent-soft:#CFE6DD;
+  --signal:#C9741F;
+  --signal-soft:#F3DEC6;
+  --grid:rgba(21,35,42,.06);
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --s-1:.8125rem; --s0:1rem; --s1:1.125rem; --s2:1.5rem; --s3:2.25rem; --s4:clamp(2.5rem,6vw,4.5rem);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1619;--surface:#141F23;--fg:#E4EBE7;--muted:#97A8A5;--line:#26363A;
+  --accent:#4DBE9C;--accent-soft:#183A32;--signal:#E39A4F;--signal-soft:#3A2A18;--grid:rgba(228,235,231,.05);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1619;--surface:#141F23;--fg:#E4EBE7;--muted:#97A8A5;--line:#26363A;
+  --accent:#4DBE9C;--accent-soft:#183A32;--signal:#E39A4F;--signal-soft:#3A2A18;--grid:rgba(228,235,231,.05);color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:var(--s0);line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;font-stretch:88%}
+.eyebrow{font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* header */
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.mark{font-family:var(--f-display);font-weight:750;font-stretch:80%;font-size:1.25rem;letter-spacing:.01em;text-decoration:none;color:var(--fg)}
+.mark span{color:var(--accent)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.9375rem}
+nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;padding-block:56px 40px;align-items:end}
+.hero h1{font-size:var(--s4);line-height:.98;font-weight:780;font-stretch:78%;letter-spacing:-.01em;margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:var(--s1);color:var(--muted);max-width:60ch;margin:22px 0 0}
+.lede strong{color:var(--fg);font-weight:600}
+.open{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{font-family:var(--f-mono);font-size:.75rem;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg)}
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.ledger .row{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline;padding:14px 18px;border-top:1px solid var(--line)}
+.ledger .row:first-child{border-top:0}
+.ledger .num{font-family:var(--f-display);font-weight:760;font-stretch:75%;font-size:2.1rem;line-height:1;font-variant-numeric:tabular-nums;min-width:4.6ch}
+.ledger .lab{color:var(--muted);font-size:.9375rem}
+.ledger .src{font-family:var(--f-mono);font-size:.6875rem;color:var(--muted);padding:10px 18px;border-top:1px solid var(--line);background:var(--bg)}
+
+section{padding-block:56px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:var(--s3);line-height:1.05;font-weight:740;max-width:22ch;margin-top:8px}
+.sec-head p{color:var(--muted);max-width:46ch;margin:0}
+
+/* program map */
+.map-band{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px 20px 16px}
+.map-scroll{overflow-x:auto}
+.map{min-width:760px;display:grid;grid-template-columns:170px 1fr;row-gap:6px;font-size:.8125rem}
+.lane-label{font-weight:600;padding-right:12px;align-self:center;line-height:1.25}
+.lane-label small{display:block;font-family:var(--f-mono);font-weight:400;font-size:.6875rem;color:var(--muted)}
+.track{position:relative;height:34px;border-left:1px solid var(--line);border-bottom:1px solid var(--grid)}
+.bar{position:absolute;top:6px;height:22px;border-radius:3px;background:var(--accent-soft);border:1px solid var(--accent);color:var(--fg);font-size:.6875rem;font-family:var(--f-mono);line-height:20px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar.crisis{background:var(--signal-soft);border-color:var(--signal)}
+.bar.pin{width:10px!important;padding:0;border-radius:50%;height:10px;top:12px;background:var(--signal);border-color:var(--signal)}
+.bar.ongoing{border-right-style:dashed;border-top-right-radius:0;border-bottom-right-radius:0}
+.axis{position:relative;height:22px;font-family:var(--f-mono);font-size:.6875rem;color:var(--muted);border-top:1px solid var(--line);margin-top:4px}
+.axis span{position:absolute;top:4px;transform:translateX(-50%)}
+.map-foot{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:.8125rem;color:var(--muted)}
+.key{display:inline-flex;align-items:center;gap:6px}
+.key i{width:16px;height:10px;border-radius:2px;display:inline-block;border:1px solid var(--accent);background:var(--accent-soft)}
+.key i.c{border-color:var(--signal);background:var(--signal-soft)}
+.key i.d{border-right-style:dashed}
+.desk{margin-top:18px;padding:14px 16px;border-left:3px solid var(--accent);background:var(--bg);font-size:.9375rem;max-width:70ch}
+
+/* case files */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:inherit;font-size:.875rem;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.case .meta{display:flex;justify-content:space-between;gap:10px;font-family:var(--f-mono);font-size:.6875rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.case h3{font-size:1.375rem;line-height:1.12;font-weight:720}
+.result{display:flex;align-items:baseline;gap:10px;padding:10px 12px;background:var(--bg);border-radius:4px}
+.result b{font-family:var(--f-display);font-stretch:75%;font-size:1.6rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.case.crisis .result b{color:var(--signal)}
+.result span{font-size:.875rem;color:var(--muted);line-height:1.35}
+.case p{margin:0;font-size:.9375rem}
+details{border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+summary{cursor:pointer;font-size:.875rem;font-weight:600;color:var(--accent);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:" +";}
+details[open] summary::after{content:" –"}
+details dl{margin:12px 0 0;display:grid;gap:10px}
+details dt{font-family:var(--f-mono);font-size:.6875rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+details dd{margin:2px 0 0;font-size:.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.full{font-weight:600;font-size:.9rem;text-decoration:none}
+.full:hover{text-decoration:underline}
+.tags span{font-size:.75rem;padding:2px 8px;border-radius:3px;background:var(--accent-soft);color:var(--fg)}
+
+/* approach */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden}
+.step{padding:20px 18px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-width:0}
+.step:first-child{border-left:0}
+.step .n{font-family:var(--f-mono);font-size:.75rem;color:var(--accent)}
+.step h3{font-size:1.25rem;font-weight:720}
+.step p{margin:0;font-size:.875rem;color:var(--muted)}
+.step .ev{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:.8125rem;color:var(--fg)}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.kit h3{font-size:1.125rem;font-weight:700;padding-bottom:8px;border-bottom:2px solid var(--fg);margin-bottom:10px}
+.kit ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.9375rem}
+.kit li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.kit li span:last-child{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);white-space:nowrap}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:start;border-top:2px solid var(--fg);padding-top:40px}
+.contact h2{font-size:var(--s3);font-weight:760;line-height:1.05}
+.contact p{color:var(--muted);max-width:52ch}
+.cards{display:grid;gap:10px}
+.c-item{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.c-item div{min-width:0}
+.c-item small{display:block;font-family:var(--f-mono);font-size:.6875rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.c-item strong{font-weight:600;overflow-wrap:anywhere}
+.c-item button{font:inherit;font-size:.8125rem;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:4px;padding:5px 10px;cursor:pointer;flex:none}
+footer{padding-block:32px 48px;font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+
+/* load moment: lanes draw left to right from a visible resting state */
+@media (prefers-reduced-motion:no-preference){
+  .bar{transform-origin:left center;animation:draw .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes draw{from{transform:scaleX(.15);opacity:.55}to{transform:none;opacity:1}}
+}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-block:40px 24px}
+  .steps{grid-template-columns:1fr}
+  .step{border-left:0;border-top:1px solid var(--line)}
+  .step:first-child{border-top:0}
+  .kit{grid-template-columns:1fr;gap:28px}
+  .contact{grid-template-columns:1fr}
+}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <a class="mark" href="#top" id="top">Nikhil Tej <span>D</span></a>
+  <nav aria-label="Sections">
+    <a href="#map">Program map</a>
+    <a href="#cases">Case files</a>
+    <a href="#approach">How I work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div>
+    <div class="eyebrow">Program &amp; Transformation Delivery</div>
+    <h1>I run many moving parts as <em>one program.</em></h1>
+    <p class="lede">For seven years I've been the last-mile delivery lead for the Government of Andhra Pradesh: one location, <strong>six-plus departments</strong>, and every scheme flowing through a single coordinating desk. I bring structure, predictability and execution discipline to work where nobody owns the whole picture. Next, I want to bring that to business transformation and sustainability programs.</p>
+    <div class="open" aria-label="Roles I'm open to">
+      <span class="chip">Program Manager</span>
+      <span class="chip">PMO</span>
+      <span class="chip">Business Transformation</span>
+      <span class="chip">Strategy &amp; Operations</span>
+      <span class="chip">Founder's Office</span>
+    </div>
+  </div>
+  <div class="ledger" aria-label="Track record">
+    <div class="row"><span class="num">15+</span><span class="lab">projects delivered across PR, RWS, SSA, Housing and Irrigation</span></div>
+    <div class="row"><span class="num">₹20Cr+</span><span class="lab">in works estimated, measured and paid out</span></div>
+    <div class="row"><span class="num">~90%</span><span class="lab">completed on schedule</span></div>
+    <div class="row"><span class="num">25k+</span><span class="lab">citizens served by those programs</span></div>
+    <div class="src">Grama Sachivalayam · Sri Sathya Sai District · Oct 2019 – present</div>
+  </div>
+</div>
+
+<section id="map" aria-labelledby="map-h">
+  <div class="sec-head">
+    <div>
+      <div class="eyebrow">Program map · 2019 → 2026</div>
+      <h2 id="map-h">Seven years of concurrent schemes, one desk</h2>
+    </div>
+    <p>Each lane is a department or workstream. Each bar is a scheme I delivered or ran inside it. Most of them overlapped, which is the point.</p>
+  </div>
+  <div class="map-band">
+    <div class="map-scroll" tabindex="0" aria-label="Timeline of programs, scroll sideways on small screens">
+      <div class="map" role="img" aria-label="Timeline of government programs delivered from 2019 to 2026 across ten workstreams">
+        <div class="lane-label">Panchayat Raj<small>Buildings, roads, drains</small></div>
+        <div class="track"><div class="bar" style="left:.7%;width:19.7%">3 public buildings · CC roads</div></div>
+
+        <div class="lane-label">Rural Water Supply<small>Daily operations</small></div>
+        <div class="track"><div class="bar ongoing" style="left:.7%;width:98.6%">Testing · repairs · tank cleaning · new supply lines</div></div>
+
+        <div class="lane-label">Samagra Shiksha<small>School infrastructure</small></div>
+        <div class="track"><div class="bar" style="left:4.9%;width:21.1%">Nadu-Nedu · 3 schools</div><div class="bar ongoing" style="left:94.4%;width:4.9%" title="Manabadi Manabhavishyathu · 5 schools">MM</div></div>
+
+        <div class="lane-label">Irrigation<small>Surveys, check dams</small></div>
+        <div class="track"><div class="bar" style="left:3.5%;width:28.2%">Check-dam build &amp; repair</div></div>
+
+        <div class="lane-label">Housing · APSHCL<small>AWAS / PMAY-G</small></div>
+        <div class="track"><div class="bar" style="left:17.6%;width:33.8%">AWAS Ph 1 · 125 houses</div><div class="bar" style="left:84.5%;width:3.6%" title="AWAS Phase 2 demand survey">Ph2</div></div>
+
+        <div class="lane-label">Sanitation &amp; welfare<small>Pilots, poverty programs</small></div>
+        <div class="track"><div class="bar" style="left:28.9%;width:11.3%">Swachh Bharat 2.0 pilot</div><div class="bar" style="left:76.8%;width:11.3%">P4 Bangaru Kutumbam</div></div>
+
+        <div class="lane-label">Water security<small>5-department program</small></div>
+        <div class="track"><div class="bar" style="left:81%;width:14.1%">Jaladhara-Jalaharathi</div></div>
+
+        <div class="lane-label">Digital governance<small>Adoption &amp; surveys</small></div>
+        <div class="track"><div class="bar ongoing" style="left:80.3%;width:19%">Mana Mitra · 12%→31%</div></div>
+
+        <div class="lane-label">Emergency response<small>Crisis command</small></div>
+        <div class="track"><div class="bar crisis" style="left:7%;width:16.2%">COVID centre</div><div class="bar crisis pin" style="left:29.6%" title="2021 flood: bridge washout and IAF rescue"></div></div>
+
+        <div class="lane-label">Elections &amp; census<small>Statutory duties</small></div>
+        <div class="track"><div class="bar" style="left:3.5%;width:28.2%">Model Code duties</div><div class="bar crisis pin" style="left:79.9%;background:var(--accent);border-color:var(--accent)" title="Census 2025"></div><div class="bar ongoing" style="left:90.9%;width:8.4%" title="SIR and BLO supervision">SIR</div></div>
+
+        <div></div>
+        <div class="axis" aria-hidden="true">
+          <span style="left:3.5%">2020</span><span style="left:17.6%">2021</span><span style="left:31.7%">2022</span><span style="left:45.8%">2023</span><span style="left:59.9%">2024</span><span style="left:73.9%">2025</span><span style="left:88%">2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="map-foot">
+      <span class="key"><i></i>Scheme or project</span>
+      <span class="key"><i class="c"></i>Crisis response</span>
+      <span class="key"><i class="d"></i>Still running</span>
+    </div>
+    <div class="desk">In program terms: the location is the program, each scheme is a project inside it, and my desk is the integration layer that sequences departments, shares resources and keeps every project inside its payment window.</div>
+  </div>
+</section>
+
+<section id="cases" aria-labelledby="cases-h">
+  <div class="sec-head">
+    <div>
+      <div class="eyebrow">Case files</div>
+      <h2 id="cases-h">What happened when the plan stopped working</h2>
+    </div>
+    <p>Each file shows the situation, what I did and the result. Open any card for the full sequence.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filter case files">
+    <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+    <button type="button" id="f-program" data-f="program" aria-pressed="false">Program delivery</button>
+    <button type="button" id="f-crisis" data-f="crisis" aria-pressed="false">Crisis &amp; escalation</button>
+    <button type="button" id="f-change" data-f="change" aria-pressed="false">Change &amp; adoption</button>
+    <button type="button" id="f-analysis" data-f="analysis" aria-pressed="false">Analysis</button>
+  </div>
+
+  <div class="cases" id="case-grid">
+    <article class="case" data-cat="change">
+      <div class="meta"><span>Digital governance</span><span>2025 – now</span></div>
+      <h3>Rescuing a stalled WhatsApp governance rollout</h3>
+      <div class="result"><b>12% → 31%</b><span>adoption across ~10,000 citizens in 3 secretariats</span></div>
+      <p>Organic campaigns had flatlined. I diagnosed why, redesigned the rollout and other supervisors copied the approach.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Situation</dt><dd>Mana Mitra moved citizen services onto WhatsApp. Banners, volunteers and operator nudges left adoption stuck at 12% while administrators pushed for numbers.</dd>
+        <dt>What I did</dt><dd>Interviewed citizen segments and mapped resistance with ADKAR: it broke at Desire and Ability (fear of costly mistakes, an ageing population, distrust of soft-copy documents). Rationed offline capacity toward elderly citizens and set up trainer-staffed self-service stalls beside operators.</dd>
+        <dt>Result</dt><dd>Adoption rose to 31%. Supervisors in other locations replicated the stall model independently.</dd>
+      </dl></details>
+      <div class="tags"><span>Change management</span><span>ADKAR</span><span>Root cause</span></div>
+      <a class="full" href="cases/mana-mitra.html">Open full case file →</a>
+    </article>
+
+    <article class="case" data-cat="program">
+      <div class="meta"><span>Housing · APSHCL</span><span>2021 – 2023</span></div>
+      <h3>Unblocking the only stalled housing site in the state</h3>
+      <div class="result"><b>125</b><span>beneficiaries building inside the payment window, all milestones paid</span></div>
+      <p>A public promise by a local MP froze construction. I reframed the problem around the payment deadline and moved each group on its own terms.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Situation</dt><dd>With land, borewell and power under way, the MP pledged to fund full third-party construction, then withdrew. Beneficiaries refused to build, media amplified it, and this became the one stalled location on a central scheme.</dd>
+        <dt>What I did</dt><dd>Separated the real risk (a fixed government release window) from the public dispute. Segmented beneficiaries by what would move each group and worked them in parallel for a month, with the District Collector in the loop.</dd>
+        <dt>Result</dt><dd>Every beneficiary started inside the window. All milestone payments completed, with RWS, power and PR follow-through.</dd>
+      </dl></details>
+      <div class="tags"><span>Stakeholder strategy</span><span>Deadline risk</span><span>Escalation</span></div>
+    </article>
+
+    <article class="case crisis" data-cat="crisis">
+      <div class="meta"><span>Emergency response</span><span>2021 flood</span></div>
+      <h3>A washed-out bridge and an overnight road</h3>
+      <div class="result"><b>24 hrs</b><span>to restore access for a 250-house habitation</span></div>
+      <p>Ran ground command through two flood crises in one week, including an Indian Air Force helicopter rescue.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Situation</dt><dd>A 60 m bridge partly collapsed, cutting off the only route to ~250 homes. Days later a car and a JCB carrying six people were stranded mid-bridge in rising water.</dd>
+        <dt>What I did</dt><dd>Dropped a drone plan that wasn't working, mobilised JCBs, labour and villagers to cut a 2 km temporary track overnight, and regularised spend afterwards. For the rescue, escalated past my authority to the Collector and MLA, with the CM's office fast-tracking IAF approval and divers on standby downstream.</dd>
+        <dt>Result</dt><dd>Access restored in about a day. All six people extracted safely.</dd>
+      </dl></details>
+      <div class="tags"><span>Crisis command</span><span>Escalation</span><span>Rapid replanning</span></div>
+    </article>
+
+    <article class="case" data-cat="program">
+      <div class="meta"><span>Samagra Shiksha</span><span>2020 – 2021</span></div>
+      <h3>Turning an SOP dead end into a state-approved process</h3>
+      <div class="result"><b>1 G.O.</b><span>issued to allow resource transfer across projects</span></div>
+      <p>Two school projects were each stuck for opposite reasons. Moving cement between them was the fix, and no rule allowed it.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Situation</dt><dd>Post-COVID payment delays left one school with surplus cement and no builder, another with a builder and no cement. Cement expires in about three months.</dd>
+        <dt>What I did</dt><dd>Escalated past an unwilling AE to the Deputy and Executive Engineers, secured a Government Order with guidelines, and drafted an MoU between both school committees to lend and replenish stock.</dd>
+        <dt>Result</dt><dd>No material wasted, both projects moving. It changed how I treat SOPs: as guardrails I can improve with the right approvals.</dd>
+      </dl></details>
+      <div class="tags"><span>Governance</span><span>Resource optimisation</span><span>Process change</span></div>
+    </article>
+
+    <article class="case" data-cat="program analysis">
+      <div class="meta"><span>Sanitation</span><span>2021 – 2022</span></div>
+      <h3>Winning, then delivering, a national sanitation pilot</h3>
+      <div class="result"><b>Model site</b><span>cited positively by central government reviewers</span></div>
+      <p>Used three years of survey data to make the case for my location, then built the waste flows with the Panchayat Secretary.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Situation</dt><dd>Administrators needed one Swachh Bharat 2.0 pilot that would prove the model to the centre.</dd>
+        <dt>What I did</dt><dd>Analysed quarterly citizen and asset surveys in Excel to show ODF status and existing infrastructure made my site the low-risk pick. Designed inorganic recycling to vendors and organic waste-to-manure at the plant, with dedicated staff.</dd>
+        <dt>Result</dt><dd>Selected, delivered and referenced as a working model for other locations.</dd>
+      </dl></details>
+      <div class="tags"><span>Data-led case</span><span>Process design</span><span>Pilot delivery</span></div>
+    </article>
+
+    <article class="case" data-cat="program">
+      <div class="meta"><span>Water security</span><span>2025 – 2026</span></div>
+      <h3>One water program across five departments</h3>
+      <div class="result"><b>5 depts</b><span>Irrigation, RWS, MGNREGS, PR and Agriculture on one plan</span></div>
+      <p>Coordinating layer for Jaladhara-Jalaharathi in a drought-hit location, funded from five separate budgets plus CSR.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Situation</dt><dd>Falling groundwater was hurting both farming and drinking water. No single department owned the response or the budget.</dd>
+        <dt>What I did</dt><dd>Gathered impact data across water departments for administrators, then ran ground implementation from January to June 2026, sequencing departmental resources, scheme budget and CSR works.</dd>
+        <dt>Result</dt><dd>Delivered on the planned window as the integration point between departments.</dd>
+      </dl></details>
+      <div class="tags"><span>Program orchestration</span><span>Multi-funding</span><span>Sustainability</span></div>
+    </article>
+
+    <article class="case" data-cat="analysis">
+      <div class="meta"><span>Independent analysis</span><span>Mar – Apr 2026</span></div>
+      <h3>Why rides fail: Uber NCR fulfilment</h3>
+      <div class="result"><b>18%</b><span>driver cancellations, the largest single cause of a 62% completion rate</span></div>
+      <p>Tested five hypotheses through segmentation and root-cause analysis, then built dashboards and recommendations.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Question</dt><dd>What is holding ride completion at 62%?</dd>
+        <dt>Method</dt><dd>Broke failures down by cause, pickup delay band, location, time of day and vehicle type.</dd>
+        <dt>Finding</dt><dd>Cancellations peak near 25% in the 5–10 minute pickup band, concentrated in specific zones. Time of day and vehicle type barely mattered.</dd>
+        <dt>Recommendations</dt><dd>Driver pre-positioning in high-delay zones, incentives targeted at 5–10 minute pickups, and smarter matching.</dd>
+      </dl></details>
+      <div class="tags"><span>SQL / Excel</span><span>Dashboards</span><span>RCA</span></div>
+    </article>
+
+    <article class="case" data-cat="analysis">
+      <div class="meta"><span>Business analysis</span><span>2026</span></div>
+      <h3>SafeGuard LK: a full BA documentation set</h3>
+      <div class="result"><b>12</b><span>artifacts, from BRD to UAT plan</span></div>
+      <p>End-to-end requirements work for a product case, built for a Loons Lab assessment.</p>
+      <details><summary>Full case</summary><dl>
+        <dt>Scope</dt><dd>BRD, FRD, SRS, user stories, personas, RTM, UAT plan, wireframes, process flows, business rules and a change-request template.</dd>
+        <dt>Why it matters</dt><dd>Shows I can turn ambiguous needs into traceable requirements that engineering and QA can build and test against.</dd>
+      </dl></details>
+      <div class="tags"><span>BRD / FRD</span><span>RTM</span><span>UAT</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="approach" aria-labelledby="approach-h">
+  <div class="sec-head">
+    <div>
+      <div class="eyebrow">Operating model</div>
+      <h2 id="approach-h">How I run a program</h2>
+    </div>
+    <p>The same five moves show up in every case above, whatever the department.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><h3>Map</h3><p>Stakeholders, as-is process, constraints and what success means to each party.</p><div class="ev">Citizen-segment interviews before redesigning Mana Mitra</div></div>
+    <div class="step"><span class="n">02</span><h3>Plan</h3><p>Workstreams, dependencies, owners, milestones and the hard deadlines that matter.</p><div class="ev">Revenue, RWS and power sequenced for a 125-house colony</div></div>
+    <div class="step"><span class="n">03</span><h3>Run</h3><p>Review rhythm, trackers and clear escalation paths so nothing drifts quietly.</p><div class="ev">16 field staff on recurring multi-department surveys</div></div>
+    <div class="step"><span class="n">04</span><h3>Recover</h3><p>Spot deviation early, find the real cause, and get the authority to fix it.</p><div class="ev">G.O. secured to move cement between schools</div></div>
+    <div class="step"><span class="n">05</span><h3>Hand over</h3><p>Documentation, payment closure and adoption checks so the change holds.</p><div class="ev">Swachh 2.0 flows run by dedicated sanitation staff</div></div>
+  </div>
+</section>
+
+<section aria-labelledby="kit-h">
+  <div class="sec-head">
+    <div>
+      <div class="eyebrow">Toolkit</div>
+      <h2 id="kit-h">Capabilities and credentials</h2>
+    </div>
+  </div>
+  <div class="kit">
+    <div>
+      <h3>Program delivery</h3>
+      <ul>
+        <li><span>Multi-department coordination</span><span>7 yrs</span></li>
+        <li><span>Estimation, measurement &amp; payments</span><span>₹20Cr+</span></li>
+        <li><span>Risk, issue &amp; deviation control</span><span>daily</span></li>
+        <li><span>Stakeholder &amp; political negotiation</span><span>field</span></li>
+        <li><span>Field team leadership</span><span>16 staff</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Analysis &amp; change</h3>
+      <ul>
+        <li><span>Requirements: BRD, FRD, user stories</span><span>BA</span></li>
+        <li><span>Process mapping, as-is / to-be</span><span>BA</span></li>
+        <li><span>Root cause &amp; segmentation</span><span>RCA</span></li>
+        <li><span>Change management</span><span>ADKAR</span></li>
+        <li><span>UAT &amp; Agile delivery</span><span>Jira</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tools &amp; learning</h3>
+      <ul>
+        <li><span>Advanced Excel, dashboards</span><span>daily</span></li>
+        <li><span>SQL · Tableau</span><span>working</span></li>
+        <li><span>ClickUp · Notion · Jira</span><span>working</span></li>
+        <li><span>NextLeap BA Fellowship</span><span>Top Fellow</span></li>
+        <li><span>IIT Kanpur project management</span><span>cert.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-h">
+  <div class="contact">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2 id="contact-h">Hiring for a program, PMO or transformation role?</h2>
+      <p>I'm looking for teams where delivery spans many owners and someone needs to hold the whole picture. Based in Andhra Pradesh and open to relocation.</p>
+    </div>
+    <div class="cards">
+      <div class="c-item"><div><small>Email</small><strong id="c-email">add-your-email@example.com</strong></div><button type="button" data-copy="c-email">Copy</button></div>
+      <div class="c-item"><div><small>LinkedIn</small><strong id="c-li">linkedin.com/in/your-profile</strong></div><button type="button" data-copy="c-li">Copy</button></div>
+      <div class="c-item"><div><small>Location</small><strong>Andhra Pradesh, India · open to relocation</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>Nikhil Tej D · Program &amp; Transformation Delivery · Figures are self-reported from Government of AP field records</footer>
+</div>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.filters button');
+  var cards=document.querySelectorAll('#case-grid .case');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.getAttribute('data-f');
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      cards.forEach(function(c){
+        var cats=(c.getAttribute('data-cat')||'').split(' ');
+        c.hidden=!(f==='all'||cats.indexOf(f)>-1);
+      });
+    });
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.getAttribute('data-copy'));
+      var t=el.textContent;
+      function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+      try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+    });
+  });
+})();
+</script>
